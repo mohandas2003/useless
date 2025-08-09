@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReverseGoogle - The Opposite Search Engine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="theme-toggle-container">
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1 class="logo">ReverseGoogle</h1>
+            <p class="tagline">Finding exactly what you don't want since 2025</p>
+        </header>
+        
+        <div class="search-container">
+            <form id="search-form">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search for something (we'll find the opposite)">
+                    <button type="button" id="voice-search-button" aria-label="Search by voice">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button type="submit" id="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="search-actions">
+                <button id="random-search-button">I'm Feeling Unlucky</button>
+                <button id="share-button"><i class="fas fa-share-alt"></i> Share This Absurdity</button>
+            </div>
+        </div>
+        
+        <div id="trending-searches" class="trending-container">
+            <h3>Trending Searches (that you should avoid)</h3>
+            <div class="trending-tags">
+                <span class="trending-tag">productivity</span>
+                <span class="trending-tag">success</span>
+                <span class="trending-tag">happiness</span>
+                <span class="trending-tag">knowledge</span>
+                <span class="trending-tag">truth</span>
+                <span class="trending-tag">artificial intelligence</span>
+                <span class="trending-tag">cryptocurrency</span>
+                <span class="trending-tag">influencer</span>
+                <span class="trending-tag">metaverse</span>
+                <span class="trending-tag">blockchain</span>
+                <span class="trending-tag">mindfulness</span>
+                <span class="trending-tag">productivity hacks</span>
+                <span class="trending-tag">digital nomad</span>
+                <span class="trending-tag">life coach</span>
+                <span class="trending-tag">self-care</span>
+            </div>
+        </div>
+        
+        <div id="search-suggestions" class="hidden">
+            <p>Try searching for: <span id="random-suggestion"></span></p>
+        </div>
+        
+        <div id="did-you-mean" class="hidden">
+            <p>Did you mean: <a href="#" id="opposite-suggestion"></a>?</p>
+        </div>
+        
+        <div id="results-container" class="hidden">
+            <div class="results-stats">
+                <p>About <span id="fake-result-count">0</span> results (<span id="search-time">0.00001</span> seconds) - 100% matched result (not really)</p>
+            </div>
+            
+            <div id="search-results">
+                <!-- Results will be populated here by JavaScript -->
+            </div>
+        </div>
+        
+        <div id="search-history-container" class="hidden">
+            <h2>Your Search History</h2>
+            <p class="history-disclaimer">We keep track of your searches so we can avoid showing you what you want</p>
+            <ul id="search-history-list"></ul>
+            <button id="clear-history-button">Clear History</button>
+        </div>
+    </div>
+    
+    <section class="blog-section">
+        <h2>Latest from the Reverse Blog</h2>
+        <div class="blog-posts">
+            <div class="blog-post">
+                <h3>The Art of Finding What You Don't Want</h3>
+                <p class="blog-date">November 15, 2025</p>
+                <p class="blog-excerpt">In a world obsessed with precision, we explore the beauty of finding exactly what you weren't looking for...</p>
+                <a href="#" class="read-more">Read Less</a>
+            </div>
+            <div class="blog-post">
+                <h3>Why Opposites Attract (Search Results)</h3>
+                <p class="blog-date">October 28, 2025</p>
+                <p class="blog-excerpt">Our algorithm experts explain the science behind finding the perfect opposite match to your query...</p>
+                <a href="#" class="read-more">Read Less</a>
+            </div>
+            <div class="blog-post">
+                <h3>Reverse Psychology: The Future of Search</h3>
+                <p class="blog-date">October 10, 2025</p>
+                <p class="blog-excerpt">How our backwards approach to search is revolutionizing the way people don't find information...</p>
+                <a href="#" class="read-more">Read Less</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2>Frequently Avoided Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Why would I use ReverseGoogle?</div>
+                <div class="faq-answer">If you're tired of finding exactly what you're looking for, ReverseGoogle offers a refreshing alternative by showing you precisely what you don't want. Perfect for those who enjoy surprises and expanding their horizons in unexpected directions.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How accurate are the opposite results?</div>
+                <div class="faq-answer">Our results are guaranteed to be 100% inaccurate, which is exactly what we're aiming for. We've perfected the art of finding the most unrelated and opposite content to your search query.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I use ReverseGoogle for serious research?</div>
+                <div class="faq-answer">Absolutely not! Unless your research involves studying the psychology of frustration or the humor in unexpected outcomes. For actual research, we recommend using literally any other search engine.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is my search history stored securely?</div>
+                <div class="faq-answer">Your search history is stored in the most insecure way possible - locally on your device where only you can access it. We believe in the opposite of data collection.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#" id="show-history-link">Search History</a>
+            <a href="#" id="about-link">About</a>
+            <a href="#" id="settings-link">Settings</a>
+            <a href="#" id="blog-link">Blog</a>
+            <a href="#" id="faq-link">FAQ</a>
+        </div>
+        <p>© 2025 ReverseGoogle - Not affiliated with any actual search engine</p>
+        <p class="disclaimer">Warning: All results are intentionally wrong and for entertainment purposes only</p>
+    </footer>
+    
+    <!-- Modal for About -->
+    <div id="about-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>About ReverseGoogle</h2>
+            <p>ReverseGoogle is a comically wrong search engine that returns the exact opposite or most absurd result for any user query.</p>
+            <p>Instead of providing accurate results like a normal search engine, ReverseGoogle delivers ironic, opposite, or completely off-topic answers — confidently and creatively.</p>
+            <p>This is a fun project and not affiliated with any actual search engine.</p>
+        </div>
+    </div>
+    
+    <!-- Modal for Settings -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Settings</h2>
+            <div class="setting-option">
+                <label for="absurdity-level">Absurdity Level:</label>
+                <select id="absurdity-level">
+                    <option value="mild">Mild Confusion</option>
+                    <option value="medium" selected>Medium Absurdity</option>
+                    <option value="high">High Nonsense</option>
+                    <option value="extreme">Complete Chaos</option>
+                </select>
+            </div>
+            <div class="setting-option">
+                <label for="result-count">Number of Results:</label>
+                <input type="range" id="result-count" min="1" max="10" value="5">
+                <span id="result-count-display">5</span>
+            </div>
+            <button id="save-settings">Save Settings</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
